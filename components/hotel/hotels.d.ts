@@ -35,5 +35,8 @@ export interface Hotel {
   latitude?: number;
   longitude?: number;
   reviewList?: Review[];
+  
   offerId?: string;
+  acceptedPayments?: string[];  // o il tipo corretto restituito dall'API
+  paymentPolicy?: string;       // o oggetto, dipende dall'API
 }
