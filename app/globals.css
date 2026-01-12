@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-header: #1f2937;
+  --color-footer: #111827;
+  --color-primary: #2563eb;
+  --color-secondary: #4b5563;
+  --color-background: #f3f4f6;
+  --font-sans: 'Inter', sans-serif;
+}
+
+html,
+body {
+  @apply min-h-screen bg-[var(--color-background)] text-gray-800 font-sans;
+}
+
+/* === Overlay semitrasparente e sfocato === */
+.overlay-dim {
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* === Animazione Sidebar === */
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out forwards;
+}
+
+/* ============================= */
+/* === REACT DATEPICKER FIX === */
+/* ============================= */
+
+/* forza la larghezza reale */
+.react-datepicker-wrapper,
+.react-datepicker__input-container {
+  width: 100%;
+}
+
+/* evita glitch di layout */
+.react-datepicker {
+  font-family: inherit;
+}
+
+/* rimuove outline browser */
+.react-datepicker__input-container input:focus {
+  outline: none;
+}
