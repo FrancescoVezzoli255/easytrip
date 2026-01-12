@@ -35,4 +35,5 @@ export interface Hotel {
   latitude?: number;
   longitude?: number;
   reviewList?: Review[];
+  offerId?: string;
 }
