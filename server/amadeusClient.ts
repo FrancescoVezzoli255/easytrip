@@ -1,4 +1,6 @@
+// @ts-ignore
 import Amadeus from "amadeus";
+
 
 if (!process.env.AMADEUS_CLIENT_ID || !process.env.AMADEUS_CLIENT_SECRET) {
   throw new Error(
