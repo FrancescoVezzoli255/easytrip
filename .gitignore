@@ -42,6 +42,6 @@ next-env.d.ts
 
 # Secrets
 *.json
-gen-lang-client-0126762535-243e7c0c851d.json
 .env*
+
 
