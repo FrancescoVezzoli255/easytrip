@@ -6,16 +6,17 @@ import Sidebar from "@/components/Sidebar";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { AppSettingsProvider, useAppSettings } from "@/context/AppSettingsContext";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
-// ✅ Google Maps script lato client correttamente
+// ✅ Google Maps script lato client
 function GoogleMapsScript() {
   const { language } = useAppSettings();
 
   return (
     <Script
       src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY}&libraries=places&language=${language}`}
-      strategy="afterInteractive" // viene eseguito dopo l'idratazione
+      strategy="afterInteractive"
       onLoad={() => console.log("Google Maps loaded")}
     />
   );
@@ -32,7 +33,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="it">
       <body className="bg-gray-50 text-gray-800 min-h-screen flex flex-col relative">
         <AppSettingsProvider>
-          {/* ✅ Google Maps multilingua lato client */}
+          {/* Google Maps */}
           <GoogleMapsScript />
 
           <Navbar
@@ -49,7 +50,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
               sidebarOpen ? "mr-80" : ""
             } relative`}
           >
-            {/* sfumatura decorativa */}
             <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-gray-50 to-transparent pointer-events-none z-0" />
             {children}
           </main>
@@ -60,6 +60,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
               sidebarOpen ? "mr-80" : ""
             }`}
           />
+
+          {/* ✅ Vercel Speed Insights */}
+          <SpeedInsights />
         </AppSettingsProvider>
       </body>
     </html>
