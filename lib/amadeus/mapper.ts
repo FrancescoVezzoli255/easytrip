@@ -26,7 +26,7 @@ export function mapAmadeusToHotel(item: any): Hotel {
     name: item.hotel.name,
     address: item.hotel.address?.lines?.join(", "),
     city: item.hotel.address?.cityName,
-    price: parseFloat(offer?.price?.total ?? "0"),
+    pricePerNight: parseFloat(offer?.price?.total ?? "0"),
     rating: item.hotel.rating ? parseFloat(item.hotel.rating) : undefined,
     images,
     isDemo: false,
