@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import HotelCard from "@/components/HotelCard";
-import HomeCards from "@/components/HomeCards";
 
 interface Trip {
   id: string;
@@ -85,51 +83,7 @@ export default function TripsPage() {
           className="border rounded-lg px-4 py-2 w-48 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
-
-      {/* Lista viaggi */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredTrips.length ? (
-          filteredTrips.map((trip) => (
-            <HotelCard
-              key={trip.id}
-              id={trip.id}
-              name={trip.name}
-              city={trip.city}
-              price={trip.price}
-              image={trip.image}
-              rating={trip.rating}
-            />
-          ))
-        ) : (
-          <p className="text-center col-span-full text-gray-500">
-            Nessun viaggio trovato con questi filtri.
-          </p>
-        )}
-      </div>
-
-      {/* Suggerimenti AI mock */}
-      <div className="mt-12">
-        <h2 className="text-2xl font-bold text-blue-700 mb-4">Itinerari consigliati dall'AI</h2>
-        <HomeCards
-          cards={[
-            {
-              title: "Weekend romantico a Venezia",
-              description: "Hotel, ristoranti e attività selezionati dall'AI.",
-              image: "https://picsum.photos/400/300?random=20",
-            },
-            {
-              title: "Tour gastronomico in Toscana",
-              description: "Esperienze culinarie e pernottamenti consigliati.",
-              image: "https://picsum.photos/400/300?random=21",
-            },
-            {
-              title: "Avventura nelle Alpi",
-              description: "Escursioni, hotel e trasporti ottimizzati dall'AI.",
-              image: "https://picsum.photos/400/300?random=22",
-            },
-          ]}
-        />
-      </div>
+     
     </section>
   );
 }
